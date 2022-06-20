@@ -4,3 +4,8 @@
   background-position: center;
   height: 100vh;
 }
+
+nav {
+  background-color: #E7BB4A;
+  padding: 16px;
+}
