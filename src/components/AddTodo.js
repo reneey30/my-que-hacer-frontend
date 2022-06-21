@@ -13,6 +13,7 @@ function AddTodo({ todos, setTodos }) {
   const [value, setValue] = useState("");
 
   const [urgentSelect, setUrgentSelect] = useState(false);
+  const [importantSelect, setImportantSelect] = useState(false);
 
   const addTodo = (text) => {
     const newTodos = [...todos, { text }];
@@ -48,16 +49,24 @@ function AddTodo({ todos, setTodos }) {
                   className="input form-check-input"
                   type="checkbox"
                   id="flexSwitchCheckDefault"
+                  onChange={()=>{
+                    setUrgentSelect(!urgentSelect)
+                  }}
+                  // checked={urgentSelect}
                 />
               </div>
             </div>
             <div className="d-flex flex-column justify-content-center ms-2">
-              <ExclamationCircle color="grey" size={24} className="ms-1"/>
+              <ExclamationCircle size={24} className={`ms-1 ${importantSelect ? "text-danger" : "text-secondary"}`}/>
               <div className="form-check form-switch mx-auto">
                 <Form.Control
                   className="input form-check-input"
                   type="checkbox"
                   id="flexSwitchCheckDefault"
+                  onChange={()=>{
+                    setImportantSelect(!importantSelect)
+                  }}
+                  // checked={importantSelect}
                 />
               </div>
             </div>
