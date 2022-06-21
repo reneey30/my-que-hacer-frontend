@@ -7,12 +7,13 @@ function Todo({ todo, index, markTodo, removeTodo }) {
     return (
       <div
         className="todo"
-        
+        key={index}
+        index={index}
       >
         <span style={{ textDecoration: todo.isDone ? "line-through" : "" }}>{todo.text}</span>
         <div>
-          <span className="ms-1" onClick={() => markTodo(index)}><Alarm color="tomato" size={32}/></span>
-          <span className="ms-1" onClick={() => markTodo(index)}> <ExclamationCircle color="tomato" size={32}/> </span>  
+          <span className="ms-1" onClick={() => markTodo(index)}><Alarm className={`ms-1 ${todo.isUrgent ? "text-danger" : "text-secondary"}`} size={32}/></span>
+          <span className="ms-1" onClick={() => markTodo(index)}> <ExclamationCircle className={`ms-1 ${todo.isImportant ? "text-danger" : "text-secondary"}`} size={32}/> </span>  
           <span className="ms-1" onClick={() => markTodo(index)}> <CheckCircle color="green" size={32}/> </span>
           <span className="ms-1" onClick={() => removeTodo(index)}> <XCircle color="red" size={32}/> </span>
         </div>

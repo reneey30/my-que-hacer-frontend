@@ -15,15 +15,17 @@ function AddTodo({ todos, setTodos }) {
   const [urgentSelect, setUrgentSelect] = useState(false);
   const [importantSelect, setImportantSelect] = useState(false);
 
-  const addTodo = (text) => {
-    const newTodos = [...todos, { text }];
+  const addTodo = (text, isUrgent, isImportant, isDone = false) => {
+    const newTodos = [...todos, { text, isUrgent, isImportant, isDone }];
     setTodos(newTodos);
+    console.log(todos);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!value) return;
-    addTodo(value);
+    addTodo(value, urgentSelect, importantSelect);
+    console.log(value);
     setValue("");
   };
 
