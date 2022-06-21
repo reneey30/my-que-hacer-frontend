@@ -10,10 +10,10 @@ function Todo({ todo, index, markTodo, removeTodo }) {
       >
         <span style={{ textDecoration: todo.isDone ? "line-through" : "" }}>{todo.text}</span>
         <div>
-            <Button variant="outline-success" onClick={() => markTodo(index)}>clock</Button>
-            <Button variant="outline-success" onClick={() => markTodo(index)}>!</Button>  
-          <Button variant="outline-success" onClick={() => markTodo(index)}>✓</Button>{' '}
-          <Button variant="outline-danger" onClick={() => removeTodo(index)}>✕</Button>
+          <Button variant="outline-danger" className="ms-1" onClick={() => markTodo(index)}>clock</Button>
+          <Button variant="outline-danger" className="ms-1" onClick={() => markTodo(index)}>!</Button>  
+          <Button variant="outline-success" className="ms-1" onClick={() => markTodo(index)}>✓</Button>
+          <Button variant="outline-danger" className="ms-1" onClick={() => removeTodo(index)}>✕</Button>
         </div>
       </div>
     );
@@ -36,7 +36,7 @@ function TodoList({ todos, setTodos }) {
       };
 
     return (
-        <div>
+        <div className='col-9'>
         {todos.map((todo, index) => (
           <Card>
             <Card.Body>

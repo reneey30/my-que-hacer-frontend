@@ -9,3 +9,12 @@ nav {
   background-color: #E7BB4A;
   padding: 16px;
 }
+.todo {
+  align-items: center;
+  display: flex;
+  font-size: 18px;
+  justify-content: space-between;
+}
+.container {
+  margin: 10px;
+}
