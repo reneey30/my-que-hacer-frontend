@@ -10,6 +10,8 @@ function App() {
     {
       text: "This is a sampe todo",
       isDone: false,
+      isUrgent: false,
+      isImportant: false,
     },
   ]);
 

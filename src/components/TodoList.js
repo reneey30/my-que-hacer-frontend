@@ -1,6 +1,7 @@
 
-import { Button, Card } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Alarm, ExclamationCircle, CheckCircle, XCircle } from 'react-bootstrap-icons';
 
 function Todo({ todo, index, markTodo, removeTodo }) {
     return (
@@ -10,10 +11,10 @@ function Todo({ todo, index, markTodo, removeTodo }) {
       >
         <span style={{ textDecoration: todo.isDone ? "line-through" : "" }}>{todo.text}</span>
         <div>
-          <Button variant="outline-danger" className="ms-1" onClick={() => markTodo(index)}>clock</Button>
-          <Button variant="outline-danger" className="ms-1" onClick={() => markTodo(index)}>!</Button>  
-          <Button variant="outline-success" className="ms-1" onClick={() => markTodo(index)}>✓</Button>
-          <Button variant="outline-danger" className="ms-1" onClick={() => removeTodo(index)}>✕</Button>
+          <span className="ms-1" onClick={() => markTodo(index)}><Alarm color="tomato" size={32}/></span>
+          <span className="ms-1" onClick={() => markTodo(index)}> <ExclamationCircle color="tomato" size={32}/> </span>  
+          <span className="ms-1" onClick={() => markTodo(index)}> <CheckCircle color="green" size={32}/> </span>
+          <span className="ms-1" onClick={() => removeTodo(index)}> <XCircle color="red" size={32}/> </span>
         </div>
       </div>
     );
