@@ -16,7 +16,16 @@ function AddTodo({ todos, setTodos }) {
   const [importantSelect, setImportantSelect] = useState(false);
 
   const addTodo = (text, isUrgent, isImportant, isDone = false) => {
-    const newTodos = [...todos, { text, isUrgent, isImportant, isDone }];
+    
+    const submission = { text, isUrgent, isImportant, isDone};
+    // send submission variable to database on backend
+    // eg fetch("https://end.point/", {
+    //  method: "POST",
+    //  headers: {"content-type": "application/json"},
+    //  body: JSON.stringify(submission)
+    //} )
+    //.then....
+    const newTodos = [...todos, submission];
     setTodos(newTodos);
     console.log(todos);
   };

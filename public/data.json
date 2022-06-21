@@ -1,0 +1,26 @@
+[
+	{
+			"text": "example todo",
+			"isDone": false,
+			"isUrgent": true,
+			"isImportant": true
+	},
+	{
+			"text": "another example todo",
+			"isDone": false,
+			"isUrgent": false,
+			"isImportant": true
+	},
+	{
+			"text": "yet another example todo",
+			"isDone": false,
+			"isUrgent": false,
+			"isImportant": false
+	},
+	{
+			"text": "final example todo",
+			"isDone": true,
+			"isUrgent": true,
+			"isImportant": true
+	}
+]
