@@ -16,8 +16,25 @@ function Nav({ userId, setUserId, username, setUsername }) {
   const logout = () => {
     setUserId = null;
   };
-  const register = () => {
+  const register = (e) => {
     // use fetch to submit form details to our api signup route
+    e.preventDefault()
+    const formData = {
+      "username": registerUsername,
+      "password": registerPassword
+    }
+
+    fetch("http://localhost:9292/signup", {
+        method: "POST",
+        headers: { "Content-Type": "application/json"},
+        body: JSON.stringify(formData)
+    })
+    .then(resp => resp.json())
+    .then(data => {
+        e.target.reset()
+        setAuthResponse(data)
+    })
+
   };
   const login = () => {
     // use fetch to submit form details to our api signin route
@@ -27,6 +44,8 @@ function Nav({ userId, setUserId, username, setUsername }) {
     e.preventDefault();
     register();
   };
+
+  
 
   const loginHandler = (e) => {
     e.preventDefault();
