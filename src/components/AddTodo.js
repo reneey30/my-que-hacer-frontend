@@ -59,7 +59,7 @@ function AddTodo({ todos, setTodos }) {
                 <Form.Control
                   className="input form-check-input"
                   type="checkbox"
-                  id="flexSwitchCheckDefault"
+                  id="flexSwitchCheckDefault1"
                   onChange={()=>{
                     setUrgentSelect(!urgentSelect)
                   }}
@@ -73,7 +73,7 @@ function AddTodo({ todos, setTodos }) {
                 <Form.Control
                   className="input form-check-input"
                   type="checkbox"
-                  id="flexSwitchCheckDefault"
+                  id="flexSwitchCheckDefault2"
                   onChange={()=>{
                     setImportantSelect(!importantSelect)
                   }}

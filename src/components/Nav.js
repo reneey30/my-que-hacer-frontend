@@ -16,38 +16,62 @@ function Nav({ userId, setUserId, username, setUsername }) {
   const logout = () => {
     setUserId = null;
   };
-  const register = (e) => {
+  const register = async () => {
     // use fetch to submit form details to our api signup route
-    e.preventDefault();
+  
     const formData = {
       username: registerUsername,
       password: registerPassword,
     };
 
-    fetch("http://localhost:9292/signup", {
+    await fetch("http://localhost:9292/signup", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),
     })
       .then((resp) => resp.json())
       .then((data) => {
-        e.target.reset();
+        
         setAuthResponse(data);
-        console.log(authResponse);
+        console.log("data from server");
+        console.log(data);
       });
   };
-  const login = () => {
+
+  const login = async () => {
     // use fetch to submit form details to our api signin route
+
+    const formData = {
+      username: loginUsername,
+      password: loginPassword,
+    };
+
+    await fetch("http://localhost:9292/signin", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    })
+      .then((resp) => resp.json())
+      .then((data) => {
+        
+        setAuthResponse(data);
+        console.log("data from server");
+        console.log(data);
+      });
   };
 
   const registerHandler = (e) => {
     e.preventDefault();
     register();
+    e.target.reset();
+    handleCloseR();
   };
 
   const loginHandler = (e) => {
     e.preventDefault();
     login();
+    e.target.reset();
+    handleCloseL();
   };
 
   const handleCloseR = () => setShowRegister(false);
