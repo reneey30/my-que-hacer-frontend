@@ -3,12 +3,6 @@ import { Button, Form } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Alarm, ExclamationCircle } from 'react-bootstrap-icons';
 
-// function AddTodo() {
-//   return (
-//     <div>AddTodo</div>
-//   )
-// }
-
 function AddTodo({ todos, setTodos }) {
   const [value, setValue] = useState("");
 

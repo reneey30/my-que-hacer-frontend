@@ -60,6 +60,7 @@ function Nav({ userId, setUserId, username, setUsername }) {
         setAuthResponse(data);
         console.log("data from server");
         console.log(data);
+        
         data.success? setIsLogged(true):console.log("not logged in");
         data.user_id? setUserId(data.user_id): console.log("not loggedin");
         data.username? setUsername(data.username): console.log("no username");
@@ -69,13 +70,28 @@ function Nav({ userId, setUserId, username, setUsername }) {
   const registerHandler = (e) => {
     e.preventDefault();
     register();
-    e.target.reset();
-    handleCloseR();
+    // if(authResponse.signup_error){
+    //   console.log(authResponse.signup_error)
+    // }
+    // else{
+      e.target.reset();
+      handleCloseR();
+    // }
+     
+    
   };
 
   const loginHandler = (e) => {
     e.preventDefault();
     login();
+    // if(authResponse.signin_error){
+    //   console.log(authResponse.signin_error)
+    // }
+    // else{
+    //   e.target.reset();
+    //   handleCloseL();
+    // }
+    // authResponse.signup_error? 
     e.target.reset();
     handleCloseL();
   };

@@ -43,10 +43,23 @@ function App() {
         username = {username}
         setUsername = {setUsername}
       />
+
       <div className="container">
         <div className="row justify-content-md-center">
-          <AddTodo todos={todos} setTodos={setTodos} />
-          <TodoList todos={todos} setTodos={setTodos} />
+          {userId ? (
+            <>
+              <AddTodo todos={todos} setTodos={setTodos} />
+              <TodoList todos={todos} setTodos={setTodos} />
+            </>
+            
+          ) : (
+            <div>
+              <h2>Welcome to Que Hacer</h2>
+              <p> Please Log in or Sign up</p>
+            </div>
+          )}
+          {/* <AddTodo todos={todos} setTodos={setTodos} />
+          <TodoList todos={todos} setTodos={setTodos} /> */}
         </div>
       </div>
     </div>
