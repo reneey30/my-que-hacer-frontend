@@ -3,6 +3,7 @@ import { Modal } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function Nav({ userId, setUserId, username, setUsername }) {
+  const [isLogged, setIsLogged] = useState(false);
   const [authResponse, setAuthResponse] = useState({}); // response from signin and signup from server
 
   const [showRegister, setShowRegister] = useState(false);
@@ -14,7 +15,9 @@ function Nav({ userId, setUserId, username, setUsername }) {
   const [loginPassword, setLoginPassword] = useState("");
 
   const logout = () => {
-    setUserId = null;
+    setIsLogged(false);
+    setUserId(null);
+    setUsername("");
   };
   const register = async () => {
     // use fetch to submit form details to our api signup route
@@ -57,6 +60,9 @@ function Nav({ userId, setUserId, username, setUsername }) {
         setAuthResponse(data);
         console.log("data from server");
         console.log(data);
+        data.success? setIsLogged(true):console.log("not logged in");
+        data.user_id? setUserId(data.user_id): console.log("not loggedin");
+        data.username? setUsername(data.username): console.log("no username");
       });
   };
 
@@ -86,9 +92,9 @@ function Nav({ userId, setUserId, username, setUsername }) {
         <h2>My Que Hacer</h2>
         <div>
           <div>
-            {userId ? (
+            {isLogged? (
               <div className="d-flex justify-content-between">
-                <div>User: {userId ? username : "Not Logged In"}</div>
+                <div className="mr-1">{userId ? username : "Not Logged In"}</div>
 
                 <button className="btn btn-light mx-2" onClick={logout}>
                   logout
