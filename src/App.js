@@ -15,6 +15,9 @@ function App() {
       // isImportant: false,
     },
   ]);
+  const [userId, setUserId] = useState(null); // get userId from server response {user_id: 123}
+  const [username, setUsername] = useState("");
+
 
   useEffect(() => {
     async function fetchData() {
@@ -34,7 +37,12 @@ function App() {
 
   return (
     <div className="main">
-      <Nav />
+      <Nav 
+        userId = {userId}
+        setUserId = {setUserId}
+        username = {username}
+        setUsername = {setUsername}
+      />
       <div className="container">
         <div className="row justify-content-md-center">
           <AddTodo todos={todos} setTodos={setTodos} />
