@@ -3,12 +3,14 @@ import { Modal } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function Nav({ userId, setUserId, username, setUsername }) {
+  const [authResponse, setAuthResponse] = useState({}) // response from signin and signup from server
+
   const [showRegister, setShowRegister] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
 
-  const [registerEmail, setRegisterEmail] = useState("");
+  const [registerUsername, setRegisterUsername] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
-  const [loginEmail, setLoginEmail] = useState("");
+  const [loginUsername, setLoginUsername] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
 
   const logout = () => {
@@ -71,17 +73,17 @@ function Nav({ userId, setUserId, username, setUsername }) {
 
           <Modal show={showRegister} onHide={handleCloseR}>
             <Modal.Header closeButton>
-              <Modal.Title>Register with Email and Password</Modal.Title>
+              <Modal.Title>Register with Username and Password</Modal.Title>
             </Modal.Header>
             <Modal.Body>
               <form onSubmit={registerHandler}>
                 <h3> Register User </h3>
                 <input
-                  type="email"
-                  placeholder="Email..."
+                  type="text"
+                  placeholder="Username..."
                   className="form-control mb-2"
                   onChange={(event) => {
-                    setRegisterEmail(event.target.value);
+                    setRegisterUsername(event.target.value);
                   }}
                 />
                 <input
@@ -109,17 +111,17 @@ function Nav({ userId, setUserId, username, setUsername }) {
 
           <Modal show={showLogin} onHide={handleCloseL}>
             <Modal.Header closeButton>
-              <Modal.Title>Sign In with Email and Password</Modal.Title>
+              <Modal.Title>Sign In with Username and Password</Modal.Title>
             </Modal.Header>
             <Modal.Body>
               <form onSubmit={loginHandler}>
                 <h3> Login </h3>
                 <input
-                  type="email"
-                  placeholder="Email..."
+                  type="text"
+                  placeholder="Username..."
                   className="form-control mb-2"
                   onChange={(event) => {
-                    setLoginEmail(event.target.value);
+                    setLoginUsername(event.target.value);
                   }}
                 />
                 <input
