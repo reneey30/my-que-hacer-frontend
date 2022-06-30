@@ -5,7 +5,6 @@ import { Alarm, ExclamationCircle } from 'react-bootstrap-icons';
 
 function AddTodo({ todos, setTodos, userId, fetchData }) {
   const [value, setValue] = useState("");
-  const [createdTodo, setCreatedTodo] = useState({});
 
   const [urgentSelect, setUrgentSelect] = useState(false);
   const [importantSelect, setImportantSelect] = useState(false);
