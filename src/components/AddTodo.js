@@ -54,7 +54,7 @@ function AddTodo({ todos, setTodos }) {
               placeholder="Add new todo"
             />
             <div className="d-flex flex-column justify-content-center ms-2">
-              <Alarm  size={24} className={`ms-1 ${urgentSelect ? "text-danger" : "text-secondary"}`}/>
+              <Alarm  size={24} color={urgentSelect ? "#e7a84a" : "grey"} className="ms-1 mb-1"/>
               <div className="form-check form-switch mx-auto">
                 <Form.Control
                   className="input form-check-input"
@@ -68,7 +68,7 @@ function AddTodo({ todos, setTodos }) {
               </div>
             </div>
             <div className="d-flex flex-column justify-content-center ms-2">
-              <ExclamationCircle size={24} className={`ms-1 ${importantSelect ? "text-danger" : "text-secondary"}`}/>
+              <ExclamationCircle size={24} color={importantSelect ? "#e7a84a" : "grey"} className="ms-1 mb-1"/>
               <div className="form-check form-switch mx-auto">
                 <Form.Control
                   className="input form-check-input"
