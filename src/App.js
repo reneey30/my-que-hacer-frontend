@@ -53,7 +53,7 @@ function App() {
         <div className="row justify-content-md-center">
           {userId ? (
             <>
-              <AddTodo todos={todos} setTodos={setTodos} />
+              <AddTodo todos={todos} setTodos={setTodos} userId={userId} fetchData={fetchData}/>
               <TodoList todos={todos} setTodos={setTodos} />
             </>
             

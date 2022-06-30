@@ -3,15 +3,50 @@ import { Button, Form } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Alarm, ExclamationCircle } from 'react-bootstrap-icons';
 
-function AddTodo({ todos, setTodos }) {
+function AddTodo({ todos, setTodos, userId, fetchData }) {
   const [value, setValue] = useState("");
+  const [createdTodo, setCreatedTodo] = useState({});
 
   const [urgentSelect, setUrgentSelect] = useState(false);
   const [importantSelect, setImportantSelect] = useState(false);
 
-  const addTodo = (text, isUrgent, isImportant, isDone = false) => {
+  const addTodo =  (title, urgent, important, userId, done = false)  => {
+
+    const formData = {
+      title: title,
+      done: done,
+      urgent: urgent,
+      important: important,
+      user_id: userId,
+    };
+
+    console.log(formData);
+
+   fetch("http://localhost:9292/create", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    })
+      .then((resp) => resp.json())
+      .then((data) => {
+        
+        console.log("data from server");
+        console.log(data);
+        return data;
+        // setCreatedTodo(data);
+        // const newTodos = [...todos, createdTodo];
+        // setTodos(newTodos);
+        // console.log(todos);
+
+        // console.log("created");
+        // console.log(createdTodo);
+
+        // console.log("todos");
+        // console.log(todos);
+      
+      });
     
-    const submission = { text, isUrgent, isImportant, isDone};
+    // const submission = { title, urgent, important, done, userId};
     // send submission variable to database on backend
     // eg fetch("https://end.point/", {
     //  method: "POST",
@@ -19,15 +54,16 @@ function AddTodo({ todos, setTodos }) {
     //  body: JSON.stringify(submission)
     //} )
     //.then....
-    const newTodos = [...todos, submission];
-    setTodos(newTodos);
-    console.log(todos);
+    // const newTodos = [...todos, createdTodo];
+    // setTodos(newTodos);
+    // console.log(todos);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!value) return;
-    addTodo(value, urgentSelect, importantSelect);
+    addTodo(value, urgentSelect, importantSelect, userId);
+    fetchData();
     console.log(value);
     setValue("");
   };
