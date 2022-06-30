@@ -3,7 +3,7 @@ import { Modal } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function Nav({ userId, setUserId, username, setUsername }) {
-  const [authResponse, setAuthResponse] = useState({}) // response from signin and signup from server
+  const [authResponse, setAuthResponse] = useState({}); // response from signin and signup from server
 
   const [showRegister, setShowRegister] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
@@ -18,23 +18,23 @@ function Nav({ userId, setUserId, username, setUsername }) {
   };
   const register = (e) => {
     // use fetch to submit form details to our api signup route
-    e.preventDefault()
+    e.preventDefault();
     const formData = {
-      "username": registerUsername,
-      "password": registerPassword
-    }
+      username: registerUsername,
+      password: registerPassword,
+    };
 
     fetch("http://localhost:9292/signup", {
-        method: "POST",
-        headers: { "Content-Type": "application/json"},
-        body: JSON.stringify(formData)
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
     })
-    .then(resp => resp.json())
-    .then(data => {
-        e.target.reset()
-        setAuthResponse(data)
-    })
-
+      .then((resp) => resp.json())
+      .then((data) => {
+        e.target.reset();
+        setAuthResponse(data);
+        console.log(authResponse);
+      });
   };
   const login = () => {
     // use fetch to submit form details to our api signin route
@@ -44,8 +44,6 @@ function Nav({ userId, setUserId, username, setUsername }) {
     e.preventDefault();
     register();
   };
-
-  
 
   const loginHandler = (e) => {
     e.preventDefault();
