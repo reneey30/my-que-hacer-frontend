@@ -32,31 +32,9 @@ function AddTodo({ todos, setTodos, userId, fetchData }) {
         
         console.log("data from server");
         console.log(data);
-        return data;
-        // setCreatedTodo(data);
-        // const newTodos = [...todos, createdTodo];
-        // setTodos(newTodos);
-        // console.log(todos);
-
-        // console.log("created");
-        // console.log(createdTodo);
-
-        // console.log("todos");
-        // console.log(todos);
-      
+        
       });
-    
-    // const submission = { title, urgent, important, done, userId};
-    // send submission variable to database on backend
-    // eg fetch("https://end.point/", {
-    //  method: "POST",
-    //  headers: {"content-type": "application/json"},
-    //  body: JSON.stringify(submission)
-    //} )
-    //.then....
-    // const newTodos = [...todos, createdTodo];
-    // setTodos(newTodos);
-    // console.log(todos);
+  
   };
 
   const handleSubmit = (e) => {
