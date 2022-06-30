@@ -9,10 +9,11 @@ import TodoList from "./components/TodoList";
 function App() {
   const [todos, setTodos] = useState([
     {
-      // text: "This is a sampe todo",
+      // title: "This is a sampe todo",
       // isDone: false,
       // isUrgent: true,
       // isImportant: false,
+      // id: id
     },
   ]);
   const [userId, setUserId] = useState(null); // get userId from server response {user_id: 123}
@@ -20,17 +21,21 @@ function App() {
 
 
   useEffect(() => {
-    async function fetchData() {
-      fetch("./data.json")
-        .then((res) => res.json())
-        .then((data) => {
-          console.log("the data: ");
-          console.log(data);
-          setTodos(data);
-        });
-    }
     fetchData();
-  }, []);
+  }, [userId]);
+
+  async function fetchData() {
+    if(!userId){
+      return;
+    }
+    fetch(`http://localhost:9292/todos/${userId}`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("the data: ");
+        console.log(data);
+        setTodos(data);
+      });
+  }
   
 
   // fetch from endpoint all todos and use 'setTodos' to put this fetched data to the 'todos' state
