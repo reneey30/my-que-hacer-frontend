@@ -49,7 +49,7 @@ function Nav({ userId, setUserId, username, setUsername }) {
       password: loginPassword,
     };
 
-    await fetch("http://localhost:9292/signin", {
+    await fetch("https://my-que-hacer-backend.herokuapp.com/signin", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),

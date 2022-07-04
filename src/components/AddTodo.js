@@ -21,7 +21,7 @@ function AddTodo({ todos, setTodos, userId, fetchData }) {
 
     console.log(formData);
 
-   fetch("http://localhost:9292/create", {
+   fetch("https://my-que-hacer-backend.herokuapp.com/create", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),
