@@ -28,7 +28,7 @@ function App() {
     if(!userId){
       return;
     }
-    fetch(`http://localhost:9292/todos/${userId}`)
+    fetch(`https://my-que-hacer-backend.herokuapp.com/todos/${userId}`)
       .then((res) => res.json())
       .then((data) => {
         console.log("the data: ");
