@@ -33,7 +33,7 @@ function TodoList({ todos, setTodos }) {
 
   async function deleteData(id) {
     
-    await fetch(`http://localhost:9292/delete/${id}`, {method: 'DELETE'})
+    await fetch(`https://my-que-hacer-backend.herokuapp.com/delete/${id}`, {method: 'DELETE'})
       .then((res) => res.json())
       .then((data) => {
         console.log("the data: ");
